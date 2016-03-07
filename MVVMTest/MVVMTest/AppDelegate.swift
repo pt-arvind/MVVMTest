@@ -11,20 +11,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
+    let appController = AppController()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        guard let window = window else { fatalError("bullshit") }
-        
-        let nav = UINavigationController(rootViewController: ViewController())
-        
-        window.rootViewController = nav
-        window.makeKeyAndVisible()
-        
-        
-        return true
+        return appController.start(didFinishLaunchingWithOptions: launchOptions)
     }
 
     func applicationWillResignActive(application: UIApplication) {

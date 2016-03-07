@@ -50,8 +50,8 @@ class QuotesView: UIView {
         super.updateConstraints()
     }
     
-    func setupWithDisplayObject(obj: QuoteDisplayObject) {
+    func setupWithDisplayObject(obj: QuotesViewViewModel) {
         quoteLabel.text = obj.quoteText
-        creatorLabel.text = "-- \(obj.quoteAuthor)"
+        creatorLabel.text = obj.quoteAuthor
     }
 }

@@ -12,11 +12,12 @@
 		B048A93C1C8D09AC00C4E163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A93B1C8D09AC00C4E163 /* ViewController.swift */; };
 		B048A9411C8D09AC00C4E163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B048A9401C8D09AC00C4E163 /* Assets.xcassets */; };
 		B048A9441C8D09AC00C4E163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B048A9421C8D09AC00C4E163 /* LaunchScreen.storyboard */; };
-		B048A94F1C8D09AC00C4E163 /* MVVMTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B048A94E1C8D09AC00C4E163 /* MVVMTestTests.swift */; };
 		B075B2D51C8D0EDD00BA7B4C /* QuotesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2D41C8D0EDD00BA7B4C /* QuotesManager.swift */; };
 		B075B2D71C8D0EEF00BA7B4C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2D61C8D0EEF00BA7B4C /* Quote.swift */; };
 		B075B2D91C8D0FAC00BA7B4C /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = B075B2D81C8D0FAC00BA7B4C /* quotes.plist */; };
 		B075B2DB1C8D334D00BA7B4C /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2DA1C8D334D00BA7B4C /* QuotesView.swift */; };
+		B075B2DD1C8E027800BA7B4C /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2DC1C8E027800BA7B4C /* AppController.swift */; };
+		B075B2DF1C8E05E700BA7B4C /* ViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2DE1C8E05E700BA7B4C /* ViewControllerSpec.swift */; };
 		FB9309535D8698DEDD6F8EA2 /* Pods_MVVMTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84C9612E63527B5E1246B1 /* Pods_MVVMTestTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,12 +43,13 @@
 		B048A9431C8D09AC00C4E163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B048A9451C8D09AC00C4E163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B048A94A1C8D09AC00C4E163 /* MVVMTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B048A94E1C8D09AC00C4E163 /* MVVMTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTestTests.swift; sourceTree = "<group>"; };
 		B048A9501C8D09AC00C4E163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B075B2D41C8D0EDD00BA7B4C /* QuotesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesManager.swift; sourceTree = "<group>"; };
 		B075B2D61C8D0EEF00BA7B4C /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		B075B2D81C8D0FAC00BA7B4C /* quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quotes.plist; sourceTree = "<group>"; };
 		B075B2DA1C8D334D00BA7B4C /* QuotesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
+		B075B2DC1C8E027800BA7B4C /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		B075B2DE1C8E05E700BA7B4C /* ViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSpec.swift; sourceTree = "<group>"; };
 		D06D991AA6C040FC59E50F89 /* Pods-MVVMTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMTestTests/Pods-MVVMTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		EAADC0AAEEE4756C419CB32F /* Pods-MVVMTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMTest/Pods-MVVMTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				B048A9421C8D09AC00C4E163 /* LaunchScreen.storyboard */,
 				B048A9451C8D09AC00C4E163 /* Info.plist */,
 				B075B2DA1C8D334D00BA7B4C /* QuotesView.swift */,
+				B075B2DC1C8E027800BA7B4C /* AppController.swift */,
 			);
 			path = MVVMTest;
 			sourceTree = "<group>";
@@ -131,8 +134,8 @@
 		B048A94D1C8D09AC00C4E163 /* MVVMTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				B048A94E1C8D09AC00C4E163 /* MVVMTestTests.swift */,
 				B048A9501C8D09AC00C4E163 /* Info.plist */,
+				B075B2DE1C8E05E700BA7B4C /* ViewControllerSpec.swift */,
 			);
 			path = MVVMTestTests;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				B075B2D51C8D0EDD00BA7B4C /* QuotesManager.swift in Sources */,
 				B048A93A1C8D09AC00C4E163 /* AppDelegate.swift in Sources */,
 				B075B2DB1C8D334D00BA7B4C /* QuotesView.swift in Sources */,
+				B075B2DD1C8E027800BA7B4C /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B048A94F1C8D09AC00C4E163 /* MVVMTestTests.swift in Sources */,
+				B075B2DF1C8E05E700BA7B4C /* ViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

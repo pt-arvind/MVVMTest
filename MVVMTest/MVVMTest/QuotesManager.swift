@@ -10,9 +10,13 @@ import Foundation
 
 typealias QuoteDict = [String : String]
 
-
-final class QuotesManager {
-    class func extractQuotesFromFile(fileName: String) -> [Quote] {
+protocol QuotesExtractor : class {
+    func extractQuotesFromFile(fileName: String) -> [Quote]
+}
+final class QuotesManager : QuotesExtractor {
+    static let sharedManager = QuotesManager()
+    
+    func extractQuotesFromFile(fileName: String) -> [Quote] {
         guard let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "plist"), let quoteDicts = NSArray(contentsOfFile: path) as? [QuoteDict] else {
             fatalError("couldn't load file: \(fileName). Path may not exist in main bundle.")
         }
