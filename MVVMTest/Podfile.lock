@@ -1,0 +1,47 @@
+PODS:
+  - Nimble (3.1.0)
+  - OHHTTPStubs (4.7.1):
+    - OHHTTPStubs/Default (= 4.7.1)
+  - OHHTTPStubs/Core (4.7.1)
+  - OHHTTPStubs/Default (4.7.1):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (4.7.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (4.7.1):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (4.7.1)
+  - OHHTTPStubs/Swift (4.7.1):
+    - OHHTTPStubs/Core
+  - Quick (0.8.0)
+  - SnapKit (0.18.0)
+  - SwiftyJSON (2.3.0)
+
+DEPENDENCIES:
+  - Nimble (~> 3.1.0)
+  - OHHTTPStubs
+  - OHHTTPStubs/Swift
+  - Quick (~> 0.8.0)
+  - SnapKit (~> 0.18.0)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `xcode7.1`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :branch: xcode7.1
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 3db7e39b11b58c91a0a360381ec7620b2caab46a
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+SPEC CHECKSUMS:
+  Nimble: 79d40f4d69d47314229bbabacaa02b8838c779b9
+  OHHTTPStubs: f7d1604d04d37d055460c0ef9af01bb249ded0fa
+  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
+  SwiftyJSON: 705aa707804b63377e49adf096d3f1bd59afafbc
+
+COCOAPODS: 0.39.0

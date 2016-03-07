@@ -1,0 +1,27 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+use_frameworks!
+
+def shared_pods
+  pod 'SnapKit', '~> 0.18.0'
+  pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => 'xcode7.1'
+end
+
+
+def testing_pods
+  pod 'Quick', '~> 0.8.0'
+  pod 'Nimble', '~> 3.1.0'
+
+  pod 'OHHTTPStubs'
+  pod 'OHHTTPStubs/Swift'
+end
+
+target 'MVVMTest' do
+  shared_pods
+end
+
+target 'MVVMTestTests' do
+  shared_pods
+  testing_pods
+end
