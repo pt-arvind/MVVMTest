@@ -18,6 +18,7 @@
 		B075B2DB1C8D334D00BA7B4C /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2DA1C8D334D00BA7B4C /* QuotesView.swift */; };
 		B075B2DD1C8E027800BA7B4C /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2DC1C8E027800BA7B4C /* AppController.swift */; };
 		B075B2DF1C8E05E700BA7B4C /* ViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2DE1C8E05E700BA7B4C /* ViewControllerSpec.swift */; };
+		B075B2E11C8E1DC300BA7B4C /* QuoteViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B075B2E01C8E1DC300BA7B4C /* QuoteViewModelSpec.swift */; };
 		FB9309535D8698DEDD6F8EA2 /* Pods_MVVMTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84C9612E63527B5E1246B1 /* Pods_MVVMTestTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		B075B2DA1C8D334D00BA7B4C /* QuotesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		B075B2DC1C8E027800BA7B4C /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		B075B2DE1C8E05E700BA7B4C /* ViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerSpec.swift; sourceTree = "<group>"; };
+		B075B2E01C8E1DC300BA7B4C /* QuoteViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteViewModelSpec.swift; sourceTree = "<group>"; };
 		D06D991AA6C040FC59E50F89 /* Pods-MVVMTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMTestTests/Pods-MVVMTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		EAADC0AAEEE4756C419CB32F /* Pods-MVVMTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMTest/Pods-MVVMTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			children = (
 				B048A9501C8D09AC00C4E163 /* Info.plist */,
 				B075B2DE1C8E05E700BA7B4C /* ViewControllerSpec.swift */,
+				B075B2E01C8E1DC300BA7B4C /* QuoteViewModelSpec.swift */,
 			);
 			path = MVVMTestTests;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B075B2E11C8E1DC300BA7B4C /* QuoteViewModelSpec.swift in Sources */,
 				B075B2DF1C8E05E700BA7B4C /* ViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

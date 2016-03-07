@@ -56,7 +56,7 @@ class QuoteViewModel {
     var quoteExtractor: QuotesExtractor //the 'API'
     var dataSource: QuoteDataSourceInterface // the datasource
     
-    init(delegate: QuoteViewModelDelegate, quoteExtractor: QuotesExtractor, dataSource: QuoteDataSourceInterface) {
+    init(delegate: QuoteViewModelDelegate? = nil, quoteExtractor: QuotesExtractor, dataSource: QuoteDataSourceInterface) {
         self.delegate = delegate
         self.quoteExtractor = quoteExtractor
         self.dataSource = dataSource
@@ -97,7 +97,7 @@ class QuoteViewModel {
         delegate?.didLoadQuotes()
     }
     
-    func initialQuote() -> QuotesViewViewModel {
+    private func initialQuote() -> QuotesViewViewModel {
         return dataSource.nextQuote()
     }
     
@@ -124,9 +124,10 @@ class ViewController: UIViewController {
         return button
     }()
     
-    required init(dataSource: QuoteDataSource) {
+    required init(viewModel: QuoteViewModel) {
         super.init(nibName: nil, bundle: nil)        
-        self.viewModel = QuoteViewModel(delegate: self, quoteExtractor: QuotesManager.sharedManager, dataSource: dataSource)
+        self.viewModel = viewModel
+        viewModel.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {

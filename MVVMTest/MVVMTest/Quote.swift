@@ -46,7 +46,7 @@ struct Quote : CustomDebugStringConvertible {
         return "\(text) -- \(author) should show up at: \(timeOfDay.rawValue)"
     }
     
-    private init(text: String, author: String, timeOfDay: TimeOfDay) {
+    init(text: String, author: String, timeOfDay: TimeOfDay) {
         self.text = text
         self.author = author
         self.timeOfDay = timeOfDay

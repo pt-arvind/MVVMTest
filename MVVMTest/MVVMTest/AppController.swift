@@ -15,7 +15,7 @@ class AppController {
     lazy var rootNav: UINavigationController = { (root) in
         let nav = UINavigationController(rootViewController: root)
         return nav
-    }(ViewController(dataSource: QuoteDataSource()))
+    }(ViewController(viewModel: QuoteViewModel(quoteExtractor: QuotesManager.sharedManager, dataSource: QuoteDataSource())))
     
     func start(didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
