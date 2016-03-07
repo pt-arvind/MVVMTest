@@ -52,6 +52,6 @@ class QuotesView: UIView {
     
     func setupWithDisplayObject(obj: QuoteDisplayObject) {
         quoteLabel.text = obj.quoteText
-        creatorLabel.text = obj.quoteAuthor
+        creatorLabel.text = "-- \(obj.quoteAuthor)"
     }
 }

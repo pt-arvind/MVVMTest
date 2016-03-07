@@ -15,10 +15,9 @@ struct QuoteDisplayObject {
     
     init(quote: Quote) {
         quoteText = quote.text
-        quoteAuthor = "-- \(quote.author)"
+        quoteAuthor = quote.author
     }
 }
-
 
 final class QuoteDataSource {
     var quotes = [QuoteDisplayObject]()
