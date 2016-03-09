@@ -43,16 +43,13 @@ final class QuoteDataSource : QuoteDataSourceInterface {
 
 protocol QuoteViewModelDelegate : class {
     func didLoadQuotes()
-    func setupInitialConstraints()
-    func setupActionHandling()
-    func displayWithQuotesViewVM(vModel: QuotesViewViewModel)
-    
-    func styleButtons()
-    func styleView()
-    func styleNav()
+
+    var quotesView: QuotesView { get } // the view
+    var nextQuoteButton: UIButton { get }
 }
-class QuoteViewModel {
+class QuoteViewModel : NSObject {
     weak var delegate: QuoteViewModelDelegate? // the VC
+    
     var quoteExtractor: QuotesExtractor //the 'API'
     var dataSource: QuoteDataSourceInterface // the datasource
     
@@ -81,104 +78,60 @@ class QuoteViewModel {
         fatalError("unsupported state")
     }
     
-    func viewDidLoad() {
-        extractQuotes()
-        delegate?.setupInitialConstraints()
-        delegate?.setupActionHandling()
-        delegate?.styleButtons()
-        delegate?.styleNav()
-        delegate?.styleView()
-        delegate?.displayWithQuotesViewVM(initialQuote())
-    }
-    
     func extractQuotes(filename: String = "quotes") {
         let quotes = quoteExtractor.extractQuotesFromFile(filename)
         dataSource.loadQuotes(quotes)
         delegate?.didLoadQuotes()
     }
-    
-    private func initialQuote() -> QuotesViewViewModel {
-        return dataSource.nextQuote()
+
+    func initialQuoteValues() -> (quote: String, author: String) {
+        let quote = dataSource.nextQuote()
+        return (quote:quote.quoteText, author:quote.quoteAuthor)
     }
     
+    
     func nextQuote(button: UIButton) {
-        delegate?.displayWithQuotesViewVM(dataSource.nextQuote())
+        displayWithQuotesViewVM(dataSource.nextQuote())
+    }
+    
+    func displayWithQuotesViewVM(vModel: QuotesViewViewModel) {
+        delegate?.quotesView.quoteLabel.text = vModel.quoteText
+        delegate?.quotesView.creatorLabel.text = vModel.quoteAuthor
     }
 }
 
-
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
-    var viewModel: QuoteViewModel?
+    let viewModel: QuoteViewModel
     
     lazy var quotesView: QuotesView = {
         let _quotesView = QuotesView()
-        
+        let initialValues = self.viewModel.initialQuoteValues()
+        _quotesView.quoteLabel.text = initialValues.quote
+        _quotesView.creatorLabel.text = initialValues.author
+
         self.view.addSubview(_quotesView)
         return _quotesView
     }()
     
     lazy var nextQuoteButton: UIButton = {
         let button = UIButton(type: .System)
+
+        button.setTitle(self.viewModel.nextQuoteButtonTitleForState(.Normal), forState: .Normal)
+        button.addTarget(self.viewModel, action: "nextQuote:", forControlEvents: .TouchUpInside)
+
         self.view.addSubview(button)
         return button
     }()
     
     required init(viewModel: QuoteViewModel) {
-        super.init(nibName: nil, bundle: nil)        
         self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        guard let viewModel = viewModel else { fatalError("nein") }
-        viewModel.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func nextQuote(button: UIButton) { //alternative to doing this is make VM inherit from NSObject and then link the action directly there!
-        guard let viewModel = viewModel else { fatalError("pass through") }
-        viewModel.nextQuote(button)
-    }
-}
-
-
-extension ViewController : QuoteViewModelDelegate {
-    func didLoadQuotes() {
-        
-    }
-    
-    func styleButtons() {
-        guard let viewModel = viewModel else { fatalError("bue-tonnes") }
-        nextQuoteButton.setTitle(viewModel.nextQuoteButtonTitleForState(.Normal), forState: .Normal)
-    }
-    
-    func styleView() {
-        guard let viewModel = viewModel else { fatalError("view-tonnes") }
-        view.backgroundColor = viewModel.backgroundColor()
-    }
-    
-    func styleNav() {
-        guard let viewModel = viewModel else { fatalError("lost at sea") }
-        navigationItem.title = viewModel.navTitle()
-        navigationController?.navigationBar.translucent = viewModel.isNavTranslucent()
-    }
-    
-    func setupActionHandling() {
-        nextQuoteButton.addTarget(self, action: "nextQuote:", forControlEvents: .TouchUpInside)
-    }
-
-    func displayWithQuotesViewVM(vModel: QuotesViewViewModel) {
-        quotesView.setupWithDisplayObject(vModel)
     }
     
     func setupInitialConstraints() {
@@ -195,5 +148,35 @@ extension ViewController : QuoteViewModelDelegate {
             make.centerX.equalTo(view)
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        setupInitialConstraints()
+        super.viewDidLayoutSubviews()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        view.backgroundColor = viewModel.backgroundColor()
+        navigationItem.title = viewModel.navTitle()
+        navigationController?.navigationBar.translucent = viewModel.isNavTranslucent()
+
+        viewModel.extractQuotes()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func nextQuote(button: UIButton) { //alternative to doing this is make VM inherit from NSObject and then link the action directly there!
+        viewModel.nextQuote(button)
+    }
+}
+
+
+extension ViewController : QuoteViewModelDelegate {
+    func didLoadQuotes() {
+        
+    }
 }

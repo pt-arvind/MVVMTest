@@ -11,11 +11,12 @@ import UIKit
 
 class AppController {
     let window:UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+    lazy var quotesManager = QuotesManager()
     
     lazy var rootNav: UINavigationController = { (root) in
         let nav = UINavigationController(rootViewController: root)
         return nav
-    }(ViewController(viewModel: QuoteViewModel(quoteExtractor: QuotesManager.sharedManager, dataSource: QuoteDataSource())))
+    }(ViewController(viewModel: QuoteViewModel(quoteExtractor: self.quotesManager, dataSource: QuoteDataSource())))
     
     func start(didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
